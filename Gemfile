@@ -6,7 +6,11 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg', '~> 0.18'
+gem 'active_model_serializers', '~> 0.10.6'
+gem 'ancestry'
+gem 'dotenv-rails'
+gem 'figaro'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -23,10 +27,14 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
+gem 'redis-rails', '~> 5.0.2'
+gem 'sidekiq', '~> 5.0.5'
+gem 'will_paginate'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bcrypt', '~> 3.1.7'
+gem 'apitome'
+gem 'rspec_api_documentation'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -39,9 +47,21 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma'
+  gem 'capistrano-sidekiq'
+  gem 'capistrano-bundler'
+  gem 'factory_bot_rails'
+  gem 'pronto'
+  gem 'pronto-rubocop', require: false
+  gem 'rubocop', require: false
 end
 
 group :development do
+  gem 'annotate'
+  gem 'fix-db-schema-conflicts'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -51,6 +71,9 @@ group :development do
 end
 
 group :test do
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
