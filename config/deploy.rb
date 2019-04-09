@@ -27,8 +27,9 @@ set :rvm_binary, '/usr/local/rvm/bin/rvm'
 # append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "public/uploads"
+append :linked_dirs, "tmp/pids", "tmp/cache", "log", "public/uploads"
 append :linked_files, '.env'
+#append :linked_files, '.env'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
