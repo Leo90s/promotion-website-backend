@@ -11,8 +11,8 @@
 #
 
 class User < ApplicationRecord
-  validates_presence_of :contact, :name
-  validates_uniqueness_of :contact, :name
+  validates_presence_of :account, :name
+  validates_uniqueness_of :account, :name
 
   has_secure_password
 end
