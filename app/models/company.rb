@@ -5,7 +5,6 @@
 #  id           :bigint(8)        not null, primary key
 #  address      :string
 #  contact      :string
-#  image        :string
 #  introduction :string
 #  name         :string
 #  url          :string
@@ -14,9 +13,9 @@
 #
 
 class Company < ApplicationRecord
-  mount_uploader :image, AvatarUploader
+  has_many :pictures
 
-  validates_presence_of :name, :contact, :address, :introduction, :image, :url
+  validates_presence_of :name, :contact, :address, :introduction, :url
 
   def self.search(search, params = nil, is_accurate = false)
     if !is_accurate

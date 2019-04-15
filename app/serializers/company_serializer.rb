@@ -5,7 +5,6 @@
 #  id           :bigint(8)        not null, primary key
 #  address      :string
 #  contact      :string
-#  image        :string
 #  introduction :string
 #  name         :string
 #  url          :string
@@ -14,5 +13,7 @@
 #
 
 class CompanySerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :contact, :introduction, :image, :url
+  attributes :id, :name, :address, :contact, :introduction, :url
+
+  has_many :pictures
 end

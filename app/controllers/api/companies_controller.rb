@@ -13,8 +13,10 @@ module Api
     end
 
     def create
-      data = Company.create(company_params)
-      render_data data, serialize_option
+      company = Company.create!(company_params)
+      images = Picture.find(params[:picture_ids])
+      company.pictures << images
+      render_data company, serialize_option
     end
 
     def update
@@ -29,8 +31,10 @@ module Api
       render_success
     end
 
+    private
+
     def company_params
-      params.permit(model_attributes)
+      params.permit(model_attributes + %i[picture_ids])
     end
   end
 end
