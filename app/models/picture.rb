@@ -18,5 +18,6 @@ class Picture < ApplicationRecord
 
   validates_presence_of :file
 
-  belongs_to :company, required: false
+  has_many :company_pictures
+  has_many :companies, through: :company_pictures, source: :company
 end
