@@ -1,10 +1,10 @@
 module Api
   class CompaniesController < BaseController
     def index
-      data = Company.all.order("created_at DESC")
-      data = data.search(params[:search]).order("created_at DESC") if params[:search].present?
-      data = data.where(company_params).order("created_at DESC") if company_params.present?
-      render_data paginated(data), serialize_option
+      data = Company.all
+      data = data.search(params[:search]) if params[:search].present?
+      data = data.where(company_params) if company_params.present?
+      render_data paginated(data).order("created_at DESC"), serialize_option
     end
 
     def show
@@ -21,6 +21,11 @@ module Api
 
     def update
       data = Company.find(params[:id])
+      if params[:picture_ids].present?
+        data.pictures.destroy_all
+        images = Picture.find(params[:picture_ids])
+        data.pictures << images
+      end 
       data.update(company_params)
       render_data data, serialize_option
     end
