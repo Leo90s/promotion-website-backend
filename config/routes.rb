@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     post 'login', to: 'sessions#login'
     resources :companies
     resources :users
+    resources :pictures, only: [:index, :create, :destroy]
   end
 end

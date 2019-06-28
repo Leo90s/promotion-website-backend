@@ -7,10 +7,13 @@
 #  contact      :string
 #  introduction :string
 #  name         :string
+#  url          :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
 
 class CompanySerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :contact, :introduction
+  attributes :id, :name, :address, :contact, :introduction, :url
+
+  has_many :pictures
 end

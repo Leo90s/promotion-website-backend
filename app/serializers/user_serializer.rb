@@ -10,9 +10,6 @@
 #  updated_at      :datetime         not null
 #
 
-class User < ApplicationRecord
-  validates_presence_of :account, :name
-  validates_uniqueness_of :account, :name
-
-  has_secure_password
+class UserSerializer < ActiveModel::Serializer
+  attributes :id, :account, :name
 end

@@ -9,6 +9,7 @@ set :repo_url, "git@github.com:Leo90s/promotion-website-backend.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
+# set :deploy_to, "/var/www/my_app_name"
 set :deploy_to, "/var/projects/#{fetch(:application)}_#{fetch(:rails_env)}"
 
 set :rvm_ruby_version, 'ruby-2.5.1'
@@ -27,9 +28,9 @@ set :rvm_binary, '/usr/local/rvm/bin/rvm'
 # append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "tmp/pids", "tmp/cache", "log", "public/uploads"
+# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, 'tmp/pids', 'tmp/cache', 'log', 'public/uploads'
 append :linked_files, '.env'
-#append :linked_files, '.env'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
