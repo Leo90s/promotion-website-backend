@@ -203,7 +203,7 @@ GEM
       rubocop (~> 0.50, >= 0.49.1)
     psych (3.1.0)
     public_suffix (3.0.3)
-    puma (3.12.1)
+    puma (3.12.3)
     rack (2.0.6)
     rack-cors (1.0.3)
     rack-protection (2.0.5)
@@ -389,7 +389,7 @@ DEPENDENCIES
   pg (= 0.21.0)
   pronto
   pronto-rubocop
-  puma (~> 3.11)
+  puma (~> 3.12)
   rack-cors
   rails (~> 5.2.2)
   redis (~> 4.0)
